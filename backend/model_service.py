@@ -21,13 +21,18 @@ class NewsClassifierService:
     
     # Default categories
     CATEGORIES = [
-        "Sports",
-        "Politics",
-        "Technology",
-        "Entertainment",
         "Business",
+        "Education",
+        "Entertainment",
+        "Finance",
         "Health",
-        "Science"
+        "Legal",
+        "Lifestyle",
+        "Politics",
+        "Science",
+        "Sports",
+        "Technology",
+        "World"
     ]
     
     def __init__(self, model_path: str = None):

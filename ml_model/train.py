@@ -21,13 +21,18 @@ class NewsClassifierTrainer:
     """Trainer for news classification model"""
     
     CATEGORIES = [
-        "Sports",
-        "Politics",
-        "Technology",
-        "Entertainment",
         "Business",
+        "Education",
+        "Entertainment",
+        "Finance",
         "Health",
-        "Science"
+        "Legal",
+        "Lifestyle",
+        "Politics",
+        "Science",
+        "Sports",
+        "Technology",
+        "World"
     ]
     
     def __init__(self, data_path: str = None):
@@ -229,8 +234,14 @@ def main():
     """Main training function"""
     trainer = NewsClassifierTrainer()
     
-    # Load data (will try downloaded data first, then sample data)
-    texts, labels, categories = trainer.load_data()
+    # Load data - try combined dataset first, then fall back to individual datasets
+    combined_file = os.path.join(trainer.data_path, "news_data_combined.csv")
+    
+    if os.path.exists(combined_file):
+        texts, labels, categories = trainer.load_data(combined_file)
+    else:
+        # Fall back to original dataset
+        texts, labels, categories = trainer.load_data()
     
     logger.info(f"Categories: {categories}")
     logger.info(f"Total samples: {len(texts)}")

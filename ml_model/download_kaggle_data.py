@@ -67,14 +67,46 @@ class KaggleNewsDownloader:
             logger.error(f"Error downloading AG News: {e}")
             return None
     
+    def download_news_headlines(self):
+        """Download News Headlines dataset with more categories"""
+        try:
+            logger.info("Downloading News Headlines dataset...")
+            url = "https://raw.githubusercontent.com/rmunro/twitter_labor/master/data_annotation/bbc_articles_v2.csv"
+            
+            # Using alternative source with more categories
+            url = "https://raw.githubusercontent.com/chaitanyajoshi/HuggingFaceDatasets/main/news_headlines_grouped.csv"
+            
+            output_file = os.path.join(self.data_path, "news_headlines.csv")
+            urllib.request.urlretrieve(url, output_file)
+            
+            df = pd.read_csv(output_file)
+            
+            if 'text' in df.columns and 'category' in df.columns:
+                df_processed = df[['text', 'category']]
+            elif 'headline' in df.columns and 'category' in df.columns:
+                df['text'] = df['headline']
+                df_processed = df[['text', 'category']]
+            else:
+                logger.warning("News Headlines dataset column structure different")
+                return None
+            
+            output_processed = os.path.join(self.data_path, "news_headlines_processed.csv")
+            df_processed.to_csv(output_processed, index=False)
+            
+            logger.info(f"✓ Downloaded News Headlines dataset: {len(df_processed)} samples")
+            logger.info(f"✓ Categories: {df_processed['category'].unique().tolist()}")
+            
+            return output_processed
+            
+        except Exception as e:
+            logger.error(f"Error downloading News Headlines: {e}")
+            return None
+    
     def download_bbc_news(self):
         """Download BBC News dataset (~2,225 samples, 5 categories)"""
         try:
             logger.info("Downloading BBC News dataset...")
-            url = "https://raw.githubusercontent.com/shayneobrien/twitter-sentiment-analysis/master/data/bbc-news-classification/News_Category_Dataset_v2.json"
-            
-            # Try alternative BBC dataset
-            url = "https://raw.githubusercontent.com/shayneobrien/twitter-sentiment-analysis/master/data/bbc-news-classification/bbc-text.csv"
+            url = "https://raw.githubusercontent.com/susanli2016/PyCon-Canada-2019-NLP-Tutorial/master/bbc-text.csv"
             
             output_file = os.path.join(self.data_path, "bbc_news.csv")
             urllib.request.urlretrieve(url, output_file)
@@ -92,6 +124,7 @@ class KaggleNewsDownloader:
             df_processed.to_csv(output_processed, index=False)
             
             logger.info(f"✓ Downloaded BBC News dataset: {len(df_processed)} samples")
+            logger.info(f"✓ Categories: {df_processed['category'].unique().tolist()}")
             logger.info(f"✓ Saved to {output_processed}")
             
             return output_processed
@@ -177,19 +210,25 @@ def main():
     datasets = []
     
     # Try downloading AG News (most reliable)
-    logger.info("\n[1/3] Attempting to download AG News dataset...")
+    logger.info("\n[1/4] Attempting to download AG News dataset...")
     ag_dataset = downloader.download_ag_news()
     if ag_dataset:
         datasets.append(ag_dataset)
     
-    # Try downloading BBC News
-    logger.info("\n[2/3] Attempting to download BBC News dataset...")
+    # Try downloading BBC News (5 categories)
+    logger.info("\n[2/4] Attempting to download BBC News dataset...")
     bbc_dataset = downloader.download_bbc_news()
     if bbc_dataset:
         datasets.append(bbc_dataset)
     
+    # Try downloading News Headlines
+    logger.info("\n[3/4] Attempting to download News Headlines dataset...")
+    headlines_dataset = downloader.download_news_headlines()
+    if headlines_dataset:
+        datasets.append(headlines_dataset)
+    
     # Try downloading News Category Dataset
-    logger.info("\n[3/3] Attempting to download News Category dataset...")
+    logger.info("\n[4/4] Attempting to download News Category dataset...")
     news_category = downloader.download_news_category_dataset()
     if news_category:
         datasets.append(news_category)
