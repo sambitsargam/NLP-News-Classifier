@@ -1,0 +1,15 @@
+NEWS DATASET SUMMARY
+==================================================
+
+Total Articles: 49
+Total Categories: 7
+
+Articles per Category:
+--------------------------------------------------
+  Business: 7 articles
+  Entertainment: 7 articles
+  Health: 7 articles
+  Politics: 7 articles
+  Science: 7 articles
+  Sports: 7 articles
+  Technology: 7 articles

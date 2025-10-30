@@ -1,0 +1,198 @@
+[
+  {
+    "text": "Liverpool defeats Manchester United 3-1 in the Premier League match. The victory secures their position at the top of the table.",
+    "category": "Sports"
+  },
+  {
+    "text": "Tennis champion Novak Djokovic wins the Australian Open after a thrilling five-set match against Matteo Berrettini.",
+    "category": "Sports"
+  },
+  {
+    "text": "NBA Finals: Golden State Warriors claim their fourth championship in five years with a dominant performance.",
+    "category": "Sports"
+  },
+  {
+    "text": "Cricket: India's cricket team wins the test series against Australia with an impressive victory in the final match.",
+    "category": "Sports"
+  },
+  {
+    "text": "Formula 1: Lewis Hamilton sets a new track record at Monaco Grand Prix qualifying session.",
+    "category": "Sports"
+  },
+  {
+    "text": "Football: Argentina wins the Copa America final against Brazil in a penalty shootout.",
+    "category": "Sports"
+  },
+  {
+    "text": "NFL: Kansas City Chiefs become Super Bowl champions after defeating San Francisco 49ers.",
+    "category": "Sports"
+  },
+  {
+    "text": "New legislation passes Congress with bipartisan support for infrastructure development worth $1 trillion.",
+    "category": "Politics"
+  },
+  {
+    "text": "Presidential election campaign heats up as candidates debate key policy issues in televised debate.",
+    "category": "Politics"
+  },
+  {
+    "text": "Parliament approves new climate change bill aimed at reducing carbon emissions by 50% by 2030.",
+    "category": "Politics"
+  },
+  {
+    "text": "Prime Minister announces new economic policy focusing on job creation and small business support.",
+    "category": "Politics"
+  },
+  {
+    "text": "Senate confirms new Supreme Court Justice after contentious hearings and votes.",
+    "category": "Politics"
+  },
+  {
+    "text": "Trade negotiations between US and EU conclude with new agreement on tariffs.",
+    "category": "Politics"
+  },
+  {
+    "text": "Government announces new immigration reform policy amid ongoing political debate.",
+    "category": "Politics"
+  },
+  {
+    "text": "Apple releases new iPhone 15 with advanced AI features and improved camera system.",
+    "category": "Technology"
+  },
+  {
+    "text": "OpenAI unveils GPT-5, a breakthrough in artificial intelligence with improved reasoning capabilities.",
+    "category": "Technology"
+  },
+  {
+    "text": "Tesla announces new battery technology that doubles electric vehicle range.",
+    "category": "Technology"
+  },
+  {
+    "text": "Meta launches new virtual reality headset designed for metaverse applications.",
+    "category": "Technology"
+  },
+  {
+    "text": "Microsoft releases Windows 12 with integrated AI assistant and improved performance.",
+    "category": "Technology"
+  },
+  {
+    "text": "Google announces quantum computing breakthrough solving previously unsolvable problems.",
+    "category": "Technology"
+  },
+  {
+    "text": "Semiconductor shortage eases as chip manufacturers increase production capacity.",
+    "category": "Technology"
+  },
+  {
+    "text": "Oscars 2024: Avatar 3 wins Best Picture in historic ceremony honoring cinema.",
+    "category": "Entertainment"
+  },
+  {
+    "text": "Taylor Swift announces world tour with record-breaking ticket sales in one day.",
+    "category": "Entertainment"
+  },
+  {
+    "text": "Netflix releases highly anticipated series that breaks viewing records on opening day.",
+    "category": "Entertainment"
+  },
+  {
+    "text": "New James Bond film exceeds box office expectations with $700 million worldwide earnings.",
+    "category": "Entertainment"
+  },
+  {
+    "text": "Music festival lineup announced featuring top international artists and performers.",
+    "category": "Entertainment"
+  },
+  {
+    "text": "Grammy Awards: Beyonce wins multiple awards including Album of the Year.",
+    "category": "Entertainment"
+  },
+  {
+    "text": "Disney releases new animated film that becomes highest-grossing movie of the quarter.",
+    "category": "Entertainment"
+  },
+  {
+    "text": "Stock market reaches all-time high as major indices post strong quarterly gains.",
+    "category": "Business"
+  },
+  {
+    "text": "Tech startup raises $500 million in Series C funding at $2 billion valuation.",
+    "category": "Business"
+  },
+  {
+    "text": "Microsoft and Google announce strategic partnership for cloud computing services.",
+    "category": "Business"
+  },
+  {
+    "text": "Corporate earnings beat analyst expectations with strong revenue growth reported.",
+    "category": "Business"
+  },
+  {
+    "text": "Oil prices surge following OPEC announcement of production cuts.",
+    "category": "Business"
+  },
+  {
+    "text": "Cryptocurrency market experiences volatility as Bitcoin price fluctuates dramatically.",
+    "category": "Business"
+  },
+  {
+    "text": "Major merger deal announced between two Fortune 500 companies for $50 billion.",
+    "category": "Business"
+  },
+  {
+    "text": "FDA approves breakthrough cancer drug showing 90% efficacy in clinical trials.",
+    "category": "Health"
+  },
+  {
+    "text": "New study reveals exercise and meditation reduce anxiety and depression significantly.",
+    "category": "Health"
+  },
+  {
+    "text": "Health officials warn of new virus variant spreading across multiple countries.",
+    "category": "Health"
+  },
+  {
+    "text": "Pharmaceutical company announces vaccine for Alzheimer's disease with promising results.",
+    "category": "Health"
+  },
+  {
+    "text": "WHO declares global health emergency as disease outbreak spreads internationally.",
+    "category": "Health"
+  },
+  {
+    "text": "Mental health awareness campaign launched to address rising depression rates.",
+    "category": "Health"
+  },
+  {
+    "text": "Hospital implements new AI diagnostic system improving accuracy of disease detection.",
+    "category": "Health"
+  },
+  {
+    "text": "Scientists discover new species of deep-sea creature in Arctic waters.",
+    "category": "Science"
+  },
+  {
+    "text": "SpaceX successfully launches satellite to expand global internet coverage.",
+    "category": "Science"
+  },
+  {
+    "text": "Researchers discover ancient fossils proving new evolutionary pathway.",
+    "category": "Science"
+  },
+  {
+    "text": "Climate scientists publish report showing acceleration of global warming trends.",
+    "category": "Science"
+  },
+  {
+    "text": "Physicists achieve breakthrough in quantum computing research at CERN.",
+    "category": "Science"
+  },
+  {
+    "text": "Astronomers detect radio signals from distant galaxy suggesting possible life.",
+    "category": "Science"
+  },
+  {
+    "text": "Biologists unlock DNA secrets of longevity in centenarians through new research.",
+    "category": "Science"
+  }
+]
