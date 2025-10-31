@@ -176,7 +176,19 @@ For detailed API documentation, see [API.md](API.md)
 - **Speed**: Slower but more accurate (200-500ms)
 - **Accuracy**: Excellent for nuanced classification
 
+**For detailed algorithm documentation, metrics, and technical details, see [MODEL.md](MODEL.md)**
+
+This comprehensive guide includes:
+- Complete mathematical formulations
+- Architecture diagrams
+- Performance comparisons
+- Dataset information
+- Training procedures
+- API integration examples
+
 ## 🔧 Configuration
+
+```
 
 Create a `.env` file in the backend directory:
 
