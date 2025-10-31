@@ -115,10 +115,21 @@ function App() {
               </div>
 
               <div className="info-item">
-                <h4>📂 Supported Categories</h4>
-                <p>
-                  Sports • Politics • Technology • Entertainment • Business • Health • Science
-                </p>
+                <h4>📂 Supported Categories (12)</h4>
+                <div className="categories-grid">
+                  <span className="category-badge">💼 Business</span>
+                  <span className="category-badge">🎓 Education</span>
+                  <span className="category-badge">🎬 Entertainment</span>
+                  <span className="category-badge">💰 Finance</span>
+                  <span className="category-badge">🏥 Health</span>
+                  <span className="category-badge">⚖️ Legal</span>
+                  <span className="category-badge">🎨 Lifestyle</span>
+                  <span className="category-badge">🏛️ Politics</span>
+                  <span className="category-badge">🔬 Science</span>
+                  <span className="category-badge">⚽ Sports</span>
+                  <span className="category-badge">💻 Technology</span>
+                  <span className="category-badge">🌍 World</span>
+                </div>
               </div>
 
               <div className="info-item">
