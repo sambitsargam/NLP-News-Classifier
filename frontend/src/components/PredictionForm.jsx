@@ -1,15 +1,63 @@
 import React, { useState } from 'react';
 import './PredictionForm.css';
-import { FiSend, FiFile } from 'react-icons/fi';
+import { FiSend, FiFile, FiLink } from 'react-icons/fi';
 
 export default function PredictionForm({ onPredict, loading }) {
   const [text, setText] = useState('');
+  const [url, setUrl] = useState('');
   const [modelType, setModelType] = useState('sklearn');
   const [activeTab, setActiveTab] = useState('text');
+  const [fetchingUrl, setFetchingUrl] = useState(false);
 
   const handleTextPredict = () => {
     if (text.trim()) {
       onPredict(text, modelType);
+    }
+  };
+
+  const handleFetchUrl = async () => {
+    if (!url.trim()) {
+      alert('Please enter a URL');
+      return;
+    }
+
+    setFetchingUrl(true);
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch URL: ${response.status}`);
+      }
+
+      const html = await response.text();
+      
+      // Extract text from HTML
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      
+      // Remove script and style elements
+      doc.querySelectorAll('script, style').forEach(el => el.remove());
+      
+      // Get text content
+      let extractedText = doc.body.innerText
+        .split('\n')
+        .map(line => line.trim())
+        .filter(line => line.length > 0)
+        .join('\n');
+
+      // Clean up excessive newlines
+      extractedText = extractedText.replace(/\n\n+/g, '\n\n').trim();
+
+      if (extractedText) {
+        setText(extractedText);
+        setActiveTab('text');
+        alert(`Extracted ${extractedText.length} characters from the URL`);
+      } else {
+        alert('No text content found on the page');
+      }
+    } catch (error) {
+      alert(`Error fetching URL: ${error.message}`);
+    } finally {
+      setFetchingUrl(false);
     }
   };
 
@@ -37,8 +85,8 @@ export default function PredictionForm({ onPredict, loading }) {
   return (
     <div className="prediction-form">
       <div className="form-header">
-        <h2>📰 Enter News Article</h2>
-        <p>Paste or upload your news article to classify it</p>
+        <h2>📰 News Article Classifier</h2>
+        <p>Paste, upload, or fetch your news article to classify it</p>
       </div>
 
       <div className="form-tabs">
@@ -46,13 +94,19 @@ export default function PredictionForm({ onPredict, loading }) {
           className={`tab ${activeTab === 'text' ? 'active' : ''}`}
           onClick={() => setActiveTab('text')}
         >
-          Text Input
+          ✏️ Text Input
         </button>
         <button
           className={`tab ${activeTab === 'file' ? 'active' : ''}`}
           onClick={() => setActiveTab('file')}
         >
-          Upload File
+          📁 Upload File
+        </button>
+        <button
+          className={`tab ${activeTab === 'url' ? 'active' : ''}`}
+          onClick={() => setActiveTab('url')}
+        >
+          🔗 From URL
         </button>
       </div>
 
@@ -73,11 +127,11 @@ export default function PredictionForm({ onPredict, loading }) {
                 className="paste-btn"
                 disabled={loading}
               >
-                📋 Paste
+                📋 Paste from Clipboard
               </button>
             </div>
           </div>
-        ) : (
+        ) : activeTab === 'file' ? (
           <div className="file-input-section">
             <label className="file-input-label">
               <div className="file-input-box">
@@ -94,11 +148,44 @@ export default function PredictionForm({ onPredict, loading }) {
               />
             </label>
           </div>
+        ) : (
+          <div className="url-input-section">
+            <div className="url-input-group">
+              <FiLink className="url-icon" />
+              <input
+                type="url"
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+                placeholder="Enter article URL (e.g., https://example.com/article)"
+                className="url-input"
+                disabled={loading || fetchingUrl}
+              />
+            </div>
+            <button
+              onClick={handleFetchUrl}
+              disabled={!url.trim() || loading || fetchingUrl}
+              className="fetch-url-btn"
+            >
+              {fetchingUrl ? (
+                <>
+                  <span className="spinner"></span>
+                  Fetching...
+                </>
+              ) : (
+                <>
+                  🌐 Fetch Article Text
+                </>
+              )}
+            </button>
+            <p className="url-hint">
+              The system will extract text content from the webpage and load it above.
+            </p>
+          </div>
         )}
       </div>
 
       <div className="model-selection">
-        <label htmlFor="model-type">Model Type:</label>
+        <label htmlFor="model-type">🤖 Model Type:</label>
         <select
           id="model-type"
           value={modelType}
@@ -106,8 +193,8 @@ export default function PredictionForm({ onPredict, loading }) {
           disabled={loading}
           className="model-select"
         >
-          <option value="sklearn">Sklearn (Fast)</option>
-          <option value="transformer">Transformer (Accurate)</option>
+          <option value="sklearn">Sklearn (Fast & Reliable)</option>
+          <option value="transformer">Transformer (Advanced)</option>
         </select>
       </div>
 

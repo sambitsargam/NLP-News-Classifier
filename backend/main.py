@@ -8,6 +8,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, Dict, Any
 import logging
+import sys
+from pathlib import Path
+
+# Add backend directory to path
+sys.path.insert(0, str(Path(__file__).parent))
+
 from model_service import NewsClassifierService
 from utils import preprocess_text, generate_confidence_dict
 import os
